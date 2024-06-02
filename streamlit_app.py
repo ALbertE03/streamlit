@@ -5,7 +5,8 @@ st.markdown(
     "<div style='text-align: center;'><h1>GYM</h1></div>", unsafe_allow_html=True
 )
 
-with st.form("inscripcion_form"):
+baneados = ["yulia", "david"]
+with st.form("inscripcion"):
     nombre = st.text_input("Nombre(s)")
     apellidos = st.text_input("Apellido(s)")
     edad = st.number_input("Edad", min_value=1, step=1)
@@ -16,7 +17,20 @@ with st.form("inscripcion_form"):
 
     if enviado:
         if edad < 15:
-            st.error("Lo sentimos, debes tener al menos 15 años para inscribirte.")
+            st.error(
+                f"Lo sentimos {nombre}, debes tener al menos 15 años para inscribirte."
+            )
+
+        elif nombre.lower() in baneados:
+            st.error(
+                f"Lo sentimos {nombre}, no puedes inscribirte. Fuiste baneado del Gym el mes pasado"
+            )
+        elif 60 <= edad <= 70:
+            st.warning("Tiene una edad avanzada segura que quiere inscribirse al GYM?")
+            st.success(f"¡Gracias por inscribirte, {nombre} {apellidos}!")
+            st.write(f"Edad: {edad}")
+            st.write(f"Municipio: {municipio}")
+            st.write(f"Motivos: {motivos}")
         else:
             st.success(f"¡Gracias por inscribirte, {nombre} {apellidos}!")
             st.write(f"Edad: {edad}")
