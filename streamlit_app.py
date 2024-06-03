@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import csv
+
 
 st.set_page_config(
     page_title="Inscripción al Gimnasio de influencer",
@@ -15,11 +15,19 @@ st.markdown(
 
 def otra_pagina():
     try:
-        with open("datos.csv", "r") as datos:
-            a = pd.DataFrame(datos)
-
+        with open("datos.csv", "r") as archivo_csv:
+            lector_csv = csv.reader(archivo_csv)
+            nombre_buscar = st.text_input("Ingresa su nombre")
+            primera_columna = [fila[0].lower() for fila in lector_csv]
+            if nombre_buscar:
+                if nombre_buscar.lower() in primera_columna:
+                    st.success(f"El nombre '{nombre_buscar}' existe en el archivo CSV.")
+                else:
+                    st.warning(
+                        f"El nombre '{nombre_buscar}' no existe en el archivo CSV."
+                    )
     except:
-        st.error("No hay datos")
+        st.error("Error al cargar el csv")
 
 
 def pagina_form():
