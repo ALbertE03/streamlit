@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-
+import csv
 
 st.set_page_config(
     page_title="Inscripción al Gimnasio de influencer",
