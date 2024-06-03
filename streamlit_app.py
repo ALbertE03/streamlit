@@ -35,6 +35,7 @@ with st.form("inscripcion"):
 
         if (
             nombre != ""
+            and (nombre not in baneados)
             and len(nombre) > 3
             and apellidos != ""
             and len(apellidos) > 3
