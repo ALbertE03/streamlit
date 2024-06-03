@@ -58,7 +58,6 @@ with st.form("inscripcion"):
             )
             st.error("Por favor, ingresa un nombre válido")
         if len(apellidos) <= 3:
-            st.warning("")
             st.error("Por favor, ingresa un apellido válido")
         if apellidos == "":
             st.error("Por favor ingresa tus apellidos")
