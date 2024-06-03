@@ -52,7 +52,7 @@ with st.form("inscripcion"):
 
         if nombre == "":
             st.error("Por favor, ingresa tu nombre")
-        if len(nombre) <= 3:
+        if len(nombre) <= 3 and nombre != "":
             st.warning(
                 f"nadie se llama {nombre}, creo. Si es su nombre correcto contactar con el staff. se encuetra a su lado 🫡"
             )
