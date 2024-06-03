@@ -36,7 +36,7 @@ def otra_pagina():
 
 
 def pagina_form():
-    baneados = ["yulia", "david"]
+    baneados = ["yulia", "david", "carlos", "carlos david"]
 
     with st.form("inscripcion"):
         nombre = st.text_input("Nombre(s)")
