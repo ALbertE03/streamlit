@@ -138,7 +138,7 @@ def pagina_form():
 
 pages = {
     "Registro": pagina_form,
-    "GYM": otra_pagina,
+    "Inicio de sección(📸)": otra_pagina,
 }
 
 
