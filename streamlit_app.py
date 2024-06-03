@@ -20,6 +20,7 @@ with st.form("inscripcion"):
         if (
             nombre != ""
             and len(nombre) > 3
+            and (nombre not in baneados)
             and apellidos != ""
             and len(apellidos) > 3
             and edad > 15
@@ -70,10 +71,12 @@ with st.form("inscripcion"):
             st.error("Por favor modifique el campo edad con su edad real")
         if municipio == "":
             st.error("Por favor ingresa tu municipio de residencia")
-        if nombre.lower() in baneados:
+        if nombre.lower() in baneados and nombre != "yulia":
             st.error(
                 f"Lo sentimos {nombre}, no puedes inscribirte. Fuiste baneado del Gym el mes pasado"
             )
+        if nombre.lower() == "yulia":
+            st.error("no necesitas el GYM, ya estas buena")
         if precio == "Precios" or precio == "":
             st.error("no puede inscribirse sin pagar, seleccione un precio")
         if (
