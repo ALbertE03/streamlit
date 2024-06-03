@@ -22,6 +22,11 @@ def otra_pagina():
             if nombre_buscar:
                 if nombre_buscar.lower() in primera_columna:
                     st.success(f"El nombre '{nombre_buscar}' existe en el archivo CSV.")
+                    foto = st.camera_input("comprobemos si eres tu")
+                    if foto:
+                        st.success(
+                            "No se que hacer con la foto, asi que asumo que eres tú😉, no me engañes"
+                        )
                 else:
                     st.warning(
                         f"El nombre '{nombre_buscar}' no existe en el archivo CSV."
