@@ -52,24 +52,24 @@ with st.form("inscripcion"):
             st.write(f"Precio del plan seleccionado: {precio}")
             st.info(f"{nombre} este plan solo lo seleccionan los verdaderos reales😎")
 
-        if nombre == "":
+        if nombre == "" and nombre.lower() != "yulia":
             st.error("Por favor, ingresa tu nombre")
-        if len(nombre) <= 3 and nombre != "":
+        if len(nombre) <= 3 and nombre != "" and nombre.lower() != "yulia":
             st.warning(
                 f"nadie se llama {nombre}, creo. Si es su nombre correcto contactar con el staff. se encuetra a su lado 🫡"
             )
             st.error("Por favor, ingresa un nombre válido")
-        if len(apellidos) <= 3:
+        if len(apellidos) <= 3 and nombre.lower() != "yulia":
             st.error("Por favor, ingresa un apellido válido")
-        if apellidos == "":
+        if apellidos == "" and nombre.lower() != "yulia":
             st.error("Por favor ingresa tus apellidos")
-        if edad < 15 and edad != 1:
+        if edad < 15 and edad != 1 and nombre.lower() != "yulia":
             st.error(
                 f"Lo sentimos {nombre}, debes tener al menos 15 años para inscribirte."
             )
-        if edad == 1:
+        if edad == 1 and nombre.lower() != "yulia":
             st.error("Por favor modifique el campo edad con su edad real")
-        if municipio == "":
+        if municipio == "" and nombre.lower() != "yulia":
             st.error("Por favor ingresa tu municipio de residencia")
         if nombre.lower() in baneados and nombre.lower() != "yulia":
             st.error(
@@ -77,9 +77,9 @@ with st.form("inscripcion"):
             )
         if nombre.lower() == "yulia":
             st.error(
-                f"{nombre}no necesitas el GYM, ya estas buena, vaya a estudiar bb."
+                f"{nombre} no necesitas el GYM, ya estas buena, vaya a estudiar bb."
             )
-        if precio == "Precios" or precio == "":
+        if (precio == "Precios" or precio == "") and nombre.lower() != "yulia":
             st.error("no puede inscribirse sin pagar, seleccione un precio")
         if (
             motivos == ""
