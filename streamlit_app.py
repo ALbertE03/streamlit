@@ -52,7 +52,7 @@ def pagina_form():
             if (
                 nombre != ""
                 and len(nombre) > 3
-                and (nombre not in baneados)
+                and (nombre.lower() not in baneados)
                 and apellidos != ""
                 and len(apellidos) > 3
                 and edad > 15
@@ -72,7 +72,7 @@ def pagina_form():
 
             if (
                 nombre != ""
-                and (nombre not in baneados)
+                and (nombre.lower() not in baneados)
                 and len(nombre) > 3
                 and apellidos != ""
                 and len(apellidos) > 3
